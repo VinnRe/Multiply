@@ -265,7 +265,7 @@ const Plinko: React.FC = () => {
 
     return (
         <main className="flex flex-row justify-center items-center min-h-screen bg-primary font-monstserrat font-bold">
-            <div ref={sceneRef} className="border-1 rounded-xl bg-primary mx-4"/>
+            <div ref={sceneRef} className="border-1 rounded-xl bg-primary mx-4 shadow-xl shadow-shadowLow"/>
             <div className="flex flex-col justify-between items-center mb-4 p-10 w-100 h-145 bg-secondary rounded-xl">
                 <img src={Logo} alt="multiply_logo" />
                 <h1 className="text-white text-2xl mb-4">DOLLAHS: ${money}</h1>
