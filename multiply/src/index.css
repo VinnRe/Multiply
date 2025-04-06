@@ -7,8 +7,16 @@
     --color-secondary: #283444;
     --color-greenbtn: #08ec04;
     --color-greenbtnHover: #16c913;
+    --color-redbtn: #D81515;
+    --color-redbtnHover: #B31818;
     --color-shadowLow: #30343975;
+    --color-bgText: #323C4C90;
+    --color-yellowText: #F5E310;
 
     /* FONTS */
     --font-monstserrat: "Montserrat", sans-serif;
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
 }
