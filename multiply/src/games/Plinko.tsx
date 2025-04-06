@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Matter from "matter-js";
 import x16 from '../assets/plinko/winpath/16x.png'
 import x9 from '../assets/plinko/winpath/9x.png'
@@ -10,6 +11,7 @@ import x1 from '../assets/plinko/winpath/1x.png'
 import x0z5 from '../assets/plinko/winpath/0-5x.png'
 import PegSound from '../assets/plinko/sounds/peg.mp3';
 import Logo from '../assets/Multiply-Logo.png';
+import BackButton from '../assets/back-arrow.svg'
 
 const Plinko: React.FC = () => {
     const sceneRef = useRef<HTMLDivElement>(null);
@@ -23,6 +25,12 @@ const Plinko: React.FC = () => {
     const currentMoneyRef = useRef(1000);
     const [money, setMoney] = useState(currentMoneyRef.current);
     const [bet, setBet] = useState<number>(0);
+
+    const navigate = useNavigate();
+
+    const homeButton = () => {
+        navigate("/Home")
+    }
 
     useEffect(() => {
         const engine = matEngine.create();
@@ -265,6 +273,7 @@ const Plinko: React.FC = () => {
 
     return (
         <main className="flex flex-row justify-center items-center min-h-screen bg-primary font-monstserrat font-bold">
+            <img src={BackButton} alt="home_button" className="absolute top-4 left-4 w-15 h-15 transition-transform duration-200 hover:scale-110 drop-shadow-[0_0_5px_white] cursor-pointer" onClick={homeButton} />
             <div ref={sceneRef} className="border-1 rounded-xl bg-primary mx-4 shadow-xl shadow-shadowLow"/>
             <div className="flex flex-col justify-between items-center mb-4 p-10 w-100 h-145 bg-secondary rounded-xl">
                 <img src={Logo} alt="multiply_logo" />

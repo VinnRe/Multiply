@@ -10,6 +10,8 @@ import ChickenL from '../assets/chicken/ChickenL.png'
 import ChickenLogo from '../assets/chicken/ChickenCross.png'
 import ChickenRoad from '../assets/chicken/ChickenRoad.png'
 import ChickenBG from '../assets/chicken/ChickenBG.png'
+import BackButton from '../assets/back-arrow.svg'
+import { useNavigate } from 'react-router-dom';
 
 const TOTAL_COLUMNS = 10;
 
@@ -99,10 +101,17 @@ const Chicken = () => {
     setWon(false);
     setRoundActive(false);
   };
+
+  const navigate = useNavigate();
+
+  const homeButton = () => {
+    navigate("/Home")
+  }
   
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-primary bg-cover bg-no-repeat bg-center font-bold" style={{ backgroundImage: `url(${ChickenBG})` }}>
+      <img src={BackButton} alt="home_button" className="absolute top-4 left-4 w-15 h-15 transition-transform duration-200 hover:scale-110 drop-shadow-[0_0_5px_white] cursor-pointer" onClick={homeButton} />
       <img src={ChickenLogo} alt="chickencross_logo" className='w-150 h-50'/>
       
       {gameOver && <p className="mb-3 text-red-500 font-semibold text-3xl absolute bg-bgText p-4 rounded-2xl">💥 You hit a car! 💥</p>}
